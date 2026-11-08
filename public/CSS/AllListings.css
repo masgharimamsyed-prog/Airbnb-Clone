@@ -1,0 +1,145 @@
+
+/* Prevent horizontal overflow */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Listings Page */
+.listings-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 25px 60px;
+}
+
+
+/* Grid */
+.listings-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 32px 22px;
+}
+
+
+/* Card */
+.listing-card {
+    min-width: 0;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: #222;
+    border-radius: 16px;
+
+    /* Hover transition */
+    transition: transform 0.3s ease;
+}
+
+/* Card Hover */
+.listing-card:hover {
+    transform: translateY(-6px);
+}
+
+
+/* Image */
+.listing-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.listing-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+
+    /* Image transition */
+    transition: transform 0.4s ease;
+}
+
+/* Image Zoom on Hover */
+.listing-card:hover .listing-image img {
+    transform: scale(1.07);
+}
+
+
+/* Text */
+.listing-info {
+    min-width: 0;
+}
+
+.listing-info h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+/* Title Hover */
+.listing-card:hover .listing-info h3 {
+    color: #777;
+}
+
+
+/* Keyboard Accessibility */
+.listing-card:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 5px;
+}
+
+
+/* Tablet */
+@media (max-width: 1199px) {
+    .listings-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* Small Tablet */
+@media (max-width: 767px) {
+    .listings-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .listings-page {
+        padding: 25px 15px 40px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 575px) {
+    .listings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .listing-card,
+    .listing-image img,
+    .listing-info h3 {
+        transition: none;
+    }
+
+    .listing-card:hover {
+        transform: none;
+    }
+
+    .listing-card:hover .listing-image img {
+        transform: none;
+    }
+}

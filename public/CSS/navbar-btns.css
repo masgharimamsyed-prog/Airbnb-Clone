@@ -1,0 +1,92 @@
+
+/* Authentication Navbar */
+.auth-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Common Button Styling */
+.auth-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 19px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+}
+
+/* Signup Button */
+.signup-BTN {
+    background: #ff385c !important;
+    color: #fff !important;
+    border: 1px solid #ff385c ;
+}
+
+ .signup-BTN:hover {
+    background: #e31c5f;
+    border-color: #e31c5f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 56, 92, 0.2);
+}
+
+/* Login Button */
+ .login-BTN {
+    color: #222 !important;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+ .login-BTN:hover {
+    background: #f7f7f7;
+    border-color: #222;
+    transform: translateY(-2px);
+}
+
+/* Logout Button */
+ .logout {
+    color: #fff !important;
+    background: #222;
+    border: 1px solid #222;
+}
+
+.logout:hover {
+    background: #444;
+    border-color: #444;
+    transform: translateY(-2px);
+}
+
+/* Click Effect */
+ .nav-link:active {
+    transform: scale(0.97);
+}
+
+/* Keyboard Accessibility */
+ .nav-link:focus-visible {
+    outline: 2px solid #ff385c;
+    outline-offset: 3px;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .auth-nav {
+        align-items: stretch;
+        gap: 8px;
+        padding: 10px 0;
+    }
+
+    .auth-nav .nav-link {
+        width: fit-content;
+        padding: 8px 16px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+     .nav-link {
+        transition: none;
+    }
+}

@@ -1,0 +1,224 @@
+<% layout("/layouts/boilerplate") %>
+    <script>
+        const maptoken = "<%=process.env.MAP_TOKEN%>";
+         const listing = <%- JSON.stringify(result) %>;
+    </script>
+    <div class="SingleListOuterSingleListBox">
+
+        <div class="SingleListSingleListBox">
+
+            <!-- Listing Image -->
+            <div class="SingleListSingleListImage">
+                <img src="<%= result.image.url %>" alt="<%= result.title %>">
+            </div>
+
+            <!-- Listing Details -->
+            <p>
+                Posted by <i>
+                    <%= result.owner.username %>
+                </i>
+            </p>
+
+            <h3>
+                <%= result.title %>
+            </h3>
+
+            <p>$<%= result.price %>/night</p>
+
+            <p>
+                <%= result.description %>
+            </p>
+
+            <p>
+            <h6>Location:</h6>
+            <%= result.location %>
+                </p>
+
+                <p>
+                <h6>Country:</h6>
+                <%= result.country %>
+                    </p>
+
+                    <hr>
+
+                    <!-- Add Review Form -->
+                    <% if (currUser) { %>
+
+                        <form action="/listings/<%= result._id %>/newReview?_method=PATCH" method="POST"
+                            class="needs-validation" novalidate>
+
+                            <br>
+
+                            <!-- Starability -->
+                            <fieldset class="starability-grow">
+
+                                <legend>
+                                    <h3>Leave a review:</h3>
+                                </legend>
+
+                                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked
+                                    aria-label="No rating." />
+
+                                <input type="radio" id="first-rate1" name="rating" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+
+                                <input type="radio" id="first-rate2" name="rating" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+
+                                <input type="radio" id="first-rate3" name="rating" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+
+                                <input type="radio" id="first-rate4" name="rating" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+
+                                <input type="radio" id="first-rate5" name="rating" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+
+                            </fieldset>
+
+                            <br>
+
+                            <!-- Comment -->
+                            <div>
+
+                                <label for="comment" class="form-label">
+                                    Comment:
+                                </label>
+
+                                <br>
+
+                                <textarea id="comment" class="form-control" cols="10" rows="7" name="comment"
+                                    placeholder="Enter Your Comment" required></textarea>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+
+                                <div class="invalid-feedback">
+                                    Comment must be required!
+                                </div>
+
+                                <br>
+                                <br>
+
+                            </div>
+
+                            <button class="btn btn-dark" id="addingReview">
+                                Add review
+                            </button>
+
+                        </form>
+
+                        <% } else { %>
+
+                            <p>Please log in to leave a review.</p>
+
+                            <% } %>
+
+                                <hr>
+
+                                <!-- Reviews Section -->
+                                <h4>Ratings:</h4>
+
+                                <% if (result.reviews && result.reviews.length> 0) { %>
+
+                                    <div class="rating-Container">
+
+                                        <% for (let review of result.reviews) { %>
+
+                                            <div class="rating-box">
+
+                                                <div class="card">
+
+                                                    <div class="card-body">
+
+                                                        <h5 class="card-title">
+                                                            <%= review.owner.username %>
+                                                        </h5>
+
+                                                        <p class="starability-result"
+                                                            data-rating="<%= review.rating %>"></p>
+
+                                                        <p class="card-text">
+                                                            <i>
+                                                                "<%= review.comment %>"
+                                                            </i>
+                                                        </p>
+
+                                                        <!-- Delete Review: Only Review Owner -->
+                                                        <% if ( currUser && currUser._id.equals(review.owner._id) ) { %>
+
+                                                            <form
+                                                                action="/listings/<%= result._id %>/review/<%= review._id %>?_method=DELETE"
+                                                                method="POST">
+
+                                                                <button class="btn btn-danger">
+                                                                    Delete
+                                                                </button>
+
+                                                            </form>
+
+                                                            <% } %>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <% } %>
+
+                                    </div>
+
+                                    <% } else { %>
+
+                                        <h5>No ratings yet.</h5>
+
+                                        <% } %>
+
+                                            <hr>
+
+                                            <!-- Edit and Delete Listing: Only Listing Owner -->
+                                            <% if ( currUser && currUser._id.equals(result.owner._id) ) { %>
+
+                                                <div class="SingleListrow my-5">
+
+                                                    <div>
+
+                                                        <form action="/listings/edit/<%= result._id %>" method="GET">
+
+                                                            <button class="SingleListedit-btn">
+                                                                Edit
+                                                            </button>
+
+                                                        </form>
+
+                                                    </div>
+
+                                                    <div>
+
+                                                        <form action="/listings/<%= result._id %>?_method=DELETE"
+                                                            method="POST">
+
+                                                            <button class="SingleListdel-btn">
+                                                                Delete
+                                                            </button>
+
+                                                        </form>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <% } %>
+
+                                                    <!-- Location Map -->
+                                                    <h3>The Location Map:</h3>
+                                                    <div id="map"></div>
+
+
+        </div>
+
+    </div>
+
+   <script src="/Javascript/map.js"></script>

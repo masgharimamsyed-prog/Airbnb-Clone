@@ -1,0 +1,39 @@
+.OuterSingleListBox {
+    width: 100%;
+    height: 100vh;
+}
+
+
+.SingleListBox {
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.SingleListImage {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    aspect-ratio: 16 / 9;
+    width: 350px;
+    border-radius: 1rem;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.Save-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    display: inline !important;
+}

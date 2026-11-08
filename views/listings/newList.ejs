@@ -1,0 +1,149 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4 p-md-5">
+
+                        <h2 class="mb-2">Create New Listing</h2>
+                        <p class="text-muted mb-4">
+                            Add the details of your new listing.
+                        </p>
+
+                        <form method="POST" action="/listings/new" class="needs-validation" novalidate
+                            enctype="multipart/form-data">
+
+                            <!-- Image -->
+                            <div class="mb-3">
+                                <label for="image" class="form-label fw-semibold">
+                                    Upload Image 
+                                </label>
+
+                                <input type="file" id="image" name="newImage" class="form-control" required>
+                                    
+                                <div class="invalid-feedback">
+                                    Please enter a valid image .
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <!-- Title -->
+                            <div class="mb-3">
+                                <label for="title" class="form-label fw-semibold">
+                                    Title
+                                </label>
+
+                                <input type="text" id="title" name="newTitle" class="form-control"
+                                    placeholder="Enter listing title" required>
+
+                                <div class="invalid-feedback">
+                                    Please choose a title.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <!-- Description -->
+                            <div class="mb-3">
+                                <label for="description" class="form-label fw-semibold">
+                                    Description
+                                </label>
+
+                                <textarea id="description" name="newDescription" class="form-control" rows="5"
+                                    placeholder="Describe your listing..." required></textarea>
+
+                                <div class="invalid-feedback">
+                                    Please enter a description.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <!-- Price -->
+                            <div class="mb-3">
+                                <label for="price" class="form-label fw-semibold">
+                                    Price
+                                </label>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+
+                                    <input type="number" id="price" name="newPrice" class="form-control"
+                                        placeholder="Enter price" min="1" required>
+
+                                    <div class="invalid-feedback">
+                                        Please enter a price greater than 0.
+                                    </div>
+
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Location -->
+                            <div class="mb-3">
+                                <label for="location" class="form-label fw-semibold">
+                                    Location
+                                </label>
+
+                                <input type="text" id="location" name="newLocation" class="form-control"
+                                    placeholder="Enter location" required>
+
+                                <div class="invalid-feedback">
+                                    Please enter a location.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <!-- Country -->
+                            <div class="mb-3">
+                                <label for="country" class="form-label fw-semibold">
+                                    Country
+                                </label>
+
+                                <input type="text" id="country" name="newCountry" class="form-control"
+                                    placeholder="Enter country" required>
+
+                                <div class="invalid-feedback">
+                                    Please enter a country.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <!-- Button -->
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    Create Listing
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

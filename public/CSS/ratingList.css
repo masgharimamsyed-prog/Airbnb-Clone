@@ -1,0 +1,36 @@
+.rating-Container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.rating-box {
+    display: flex;
+}
+
+.rating-box .card {
+    width: 100%;
+    height: 100%;
+}
+
+.rating-box .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rating-box .card-body form {
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .rating-Container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.starability-result {
+    transform: scale(0.7);
+    transform-origin: left center;
+}

@@ -1,0 +1,40 @@
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="listings-page">
+
+    <div class="listings-header">
+        <h1>Explore Listings</h1>
+        <p>Find your next place to stay.</p>
+    </div>
+
+    <div class="listings-grid">
+
+        <% for (list of result) { %>
+
+            <a href="/listings/<%= list.id %>" class="listing-card">
+
+                <div class="listing-image">
+                    <img
+                        src="<%= list.image.url %>"
+                        alt="<%= list.title %>"
+                    >
+                </div>
+
+                <div class="listing-info">
+                    <h5><%= list.title %></h5>
+
+                    <p class="listing-price">
+                        <strong>$<%= list.price %></strong>
+                        <span> /night</span>
+                    </p>
+                </div>
+
+            </a>
+
+        <% } %>
+
+    </div>
+
+</div>
+

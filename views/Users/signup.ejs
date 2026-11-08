@@ -1,0 +1,95 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4 p-md-5">
+
+                        <h2 class="mb-2">Welcome! to AirBnb</h2>
+                        <p class="text-muted mb-4">
+                            Create new account and explore places
+                        </p>
+
+                        <form method="POST" action="/user/signup" class="needs-validation" novalidate>
+
+                            <!-- usrename -->
+                            <div class="mb-3">
+                                <label for="username" class="form-label fw-semibold">
+                                    username
+                                </label>
+
+                                <input type="text" id="username" name="username" class="form-control"
+                                    placeholder="Enter username" required>
+
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <!-- email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold">
+                                    Email
+                                </label>
+
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="Enter Email" required>
+
+                                <div class="invalid-feedback">
+                                    Please enter a Email.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <!-- password -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-semibold">
+                                    password
+                                </label>
+
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="Enter password" required>
+
+                                <div class="invalid-feedback">
+                                    Please enter a password.
+                                </div>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!-- Button -->
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    SignUp
+                                </button>
+                            </div>
+
+                        </form>
+                        <a class="nav-link signup-BTN" href="/user/signup"
+                            style="background-color: #000000; margin-top: 10px; text-align: center; color: white; padding: 8px 20px; border-radius: 20px; font-weight: 500;">
+                            Login
+                        </a>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
