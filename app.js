@@ -95,10 +95,14 @@ app.get("/", (req, res) => {
 
 //ERROR HANDLING MIDDLE WARE FOR ALL
 app.use((err, req, res, next) => {
-  let { statusCode = 403, message = "default: Something went wrong" } = err;
-  req.flash("failure", `${message}`);
-  res.redirect("/listings");
-})
+  console.log("REAL ERROR:", err);
+  let { statusCode = 500, message = "Something went wrong" } = err;
+  if (typeof req.flash === "function") {
+    req.flash("failure", message);
+    return res.redirect("/listings");
+  }
+  res.status(statusCode).send("Error: " + message);
+});
 
 
 if (process.env.NODE_ENV !== "production") {
