@@ -90,7 +90,7 @@ app.use("/user", UserRoute);
 
 //ROOT path
 app.use("/", (req, res) => {
-  res.send("Hi,I am the root of AirBnb");
+  res.render("root.ejs");
 });
 
 //ERROR HANDLING MIDDLE WARE FOR ALL
