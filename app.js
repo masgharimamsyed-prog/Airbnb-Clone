@@ -89,7 +89,7 @@ app.use("/listings/:id", ReviewRoute);
 app.use("/user", UserRoute);
 
 //ROOT path
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.render("root.ejs");
 });
 
@@ -101,6 +101,10 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+  });
+}
+
+module.exports = app;
