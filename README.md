@@ -28,7 +28,6 @@ A full-stack accommodation listing web application inspired by Airbnb, built usi
 
 ## 📂 Project Structure
 
-```text
 Airbnb-Clone/
 │
 ├── controllers/
@@ -46,6 +45,10 @@ Airbnb-Clone/
 ├── package.json
 ├── .gitignore
 └── README.md
+
+
+
+---
 
 ## 📚 Key Learnings
 
