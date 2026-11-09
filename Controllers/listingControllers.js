@@ -2,7 +2,7 @@ const listing = require('../init/listingsmongoose.js');
 const ListingSchemaJoi = require("../Joi/listing.js");
 
 //MAP
-const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geoCoding');
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const maptoken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: maptoken });
 
